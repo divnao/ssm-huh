@@ -1,0 +1,110 @@
+#page_head {
+    border: lightblue solid 1px;
+    height: 80px;
+    width: auto;
+    text-align: left;
+    border-radius: 3px;
+    color: gainsboro;
+    font-family: "AR PL UKai CN";
+    font-size: large;
+    background-color: deepskyblue;
+}
+
+#head_line {
+    font-size: xx-large;
+    padding-top: 20px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+#page_foot {
+    height: 80px;
+    text-align: center;
+    margin-bottom: 0px;
+    color: dimgrey;
+    font-size: small;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+
+#user {
+    float: right;
+    padding-right: 20px;
+    margin-top: -10px;
+}
+
+#page_medium_left {
+    height: 600px;
+    width: 120px;
+    border: lightslategray solid 1px;
+    border-left-color: white;
+    border-bottom-color: white;
+    border-top-color: white;
+    padding-top: 0px;
+    float: left;
+}
+
+#customer_manage_btn {
+    margin-top: 0px;
+    width: 120px;
+    border-radius: 5px;
+    background-color: darkgrey;
+    height: 40px;
+    font-size: small;
+}
+
+#film_manage_btn {
+    margin-top: 5px;
+    width: 120px;
+    border-radius: 5px;
+    background-color: darkgrey;
+    height: 40px;
+    font-size: small;
+}
+
+#customer_manage {
+    font-size: x-large;
+    border: deepskyblue solid 3px;
+    border-left-color: white;
+    border-right-color: white;
+    border-top-color: white;
+    margin-left: 120px;
+    padding-left: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#logout {
+    padding-left: 10px;
+}
+
+table tr td {
+    text-align: center;
+}
+
+.delete {
+    margin-left: 2px;
+}
+
+.delete, .modify, .add {
+    border-radius: 5px;
+    background-color: aquamarine;
+}
+
+#page_medium_buttom {
+    padding-top: 10px;
+}
+
+#page_medium_buttom {
+    float: left;
+    padding-left: 20px;
+}
+
+#pre_page, #next_page {
+    border-radius: 5px;
+    background-color: darkgrey;
+}

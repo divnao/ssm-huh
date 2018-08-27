@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>首页</title>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function checkNull(form) {
+            var user_name = $("#user_id").val();
+            var password = $("#password").val();
+            if (user_name == null || user_name == "" || password == null || password == "") {
+                alert("用户名或密码为空, 请重新填写!");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+    <style>
+        #page_head {
+            border: lightblue solid 1px;
+            height: 80px;
+            width: auto;
+            text-align: left;
+            border-radius: 3px;
+            color: gainsboro;
+            font-family: "AR PL UKai CN";
+            font-size: large;
+            background-color: deepskyblue;
+        }
+
+        #head_line {
+            font-size: xx-large;
+            padding-top: 20px;
+            padding-left: 20px;
+        }
+
+        #page_medium {
+            padding-top: 50px;
+        }
+
+        #page_medium_left {
+            padding-left: 50px;
+        }
+
+        #img_1 {
+            padding-left: 70px;
+        }
+
+        #login {
+            float: right;
+            border: 2px solid lightblue;
+            width: 300px;
+            height: 250px;
+            margin-top: 20px;
+            border-radius: 8px;
+            margin-right: 150px;
+            text-align: center;
+            background-color: deepskyblue;
+        }
+
+        .login_item {
+            width: 200px;
+            height: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: aqua solid 2px;
+        }
+
+        #login_btn {
+            background-color: aqua;
+        }
+
+        #page_foot {
+            height: 80px;
+            text-align: center;
+            margin-bottom: 0px;
+            color: dimgrey;
+            font-size: small;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+
+<!--page head-->
+<div id="page_head">
+    <div id="head_line"><strong>19800 胡浩</strong></div>
+</div>
+
+<!--head medium-->
+<div id="page_medium">
+    <!-- the image located in the first page-->
+    <img id="img_1" src="static/imgs/1.png">
+
+    <!--log in module-->
+    <div id="login">
+        <p><strong>电影租赁管理系统登录</strong></p>
+        <form id="user_info" name="userInfo" action="/doReg" method="post">
+            <input id="user_id" name="username" class="login_item" type="text" value="JACK" placeholder="用户名">
+            <input id="password" name="password" class="login_item" type="password" value="FOUST" placeholder="密码">
+            <input id="login_btn" type="submit" class="login_item" value="立即登录" onclick="return checkNull(this);">
+        </form>
+    </div>
+</div>
+<!--<hr/>-->
+
+<!--page foot-->
+<div id="page_foot">
+    <hr/>
+    <div id=page_foot_content">
+        <span>如有问题, 请联系系统管理员:: </span><span id="administrator">huhao</span>
+        <p>&copy; xxxxx</p>
+    </div>
+</div>
+</body>
+
+
+</html>

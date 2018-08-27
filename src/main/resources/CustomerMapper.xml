@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="customer">
+
+    <!--　按照用户firstName查询　-->
+    <select id="selectOne" parameterType="java.lang.String" resultMap="RM_1">
+      select c.first_name firstName, c.last_name lastName, a.address address, a.phone phone, c.email email, c.customer_id customerId, c.last_update lastUpdate
+      from customer c
+      left outer join address a
+      on c.address_id = a.address_id
+      where c.first_name = #{firstName}
+    </select>
+    <resultMap id="RM_1" type="com.huh.ssm.domain.Customer">
+        <result property="firstName" column="firstName"/>
+        <result property="lastName" column="lastName"/>
+        <result property="email" column="email"/>
+        <result property="customerId" column="customerId"/>
+        <result property="lastUpdate" column="lastUpdate"/>
+        <association property="address" javaType="com.huh.ssm.domain.Address">
+            <result property="address" column="address"/>
+            <result property="phone" column="phone"/>
+        </association>
+    </resultMap>
+
+    <!-- 查询customer总数 -->
+    <select id="count" resultType="int">
+        select count(*) from customer
+    </select>
+
+    <!-- 分页查询用户列表 -->
+    <select id="selectPage" parameterType="int" resultMap="RM_2">
+        select c.first_name firstName, c.last_name lastName, a.address address, a.address_id addressId, a.phone phone, c.email email, c.customer_id customerId, c.last_update lastUpdate
+        from customer c
+        left outer join address a
+        on c.address_id = a.address_id
+        limit #{offset}, #{limit}
+    </select>
+    <resultMap id="RM_2" type="com.huh.ssm.domain.Customer">
+        <result property="firstName" column="firstName"/>
+        <result property="lastName" column="lastName"/>
+        <result property="email" column="email"/>
+        <result property="customerId" column="customerId"/>
+        <result property="lastUpdate" column="lastUpdate"/>
+        <result property="addressId" column="addressId"/>
+        <association property="address" javaType="com.huh.ssm.domain.Address">
+            <result property="address" column="address"/>
+            <result property="phone" column="phone"/>
+        </association>
+    </resultMap>
+
+    <!-- update -->
+    <update id="update">
+      update customer
+      set first_name = #{firstName}, last_name = #{lastName},
+          email = #{email}, address_id = #{address.addressId},
+          last_update = #{lastUpdate}
+      where customer_id = #{customerId}
+    </update>
+
+    <!--insert-->
+    <insert id="insert">
+        insert into customer (first_name, last_name, email, active, address_id, store_id, create_date, last_update)
+        select #{firstName}, #{lastName}, #{email}, #{active}, address_id, #{storeId}, #{createDate}, #{lastUpdate}
+        from address
+        where address = #{address.address};
+    </insert>
+
+    <delete id="delete" parameterType="int">
+        delete from customer where customer_id = #{customerId};
+    </delete>
+
+
+</mapper>
